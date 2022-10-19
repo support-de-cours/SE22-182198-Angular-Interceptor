@@ -6,6 +6,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HttpRequestInterceptor } from './interceptors/http-request.interceptor';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,12 @@ import { HttpRequestInterceptor } from './interceptors/http-request.interceptor'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpRequestInterceptor,
+      multi: true
+    },
+    
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
       multi: true
     }
   ],

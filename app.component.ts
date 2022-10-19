@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     // TODO: Step 9 - Remove Endpoint 
     // this._httpClient.get( `${endpoint}pokemon` ).subscribe(data => {
 
-    this._httpClient.get( `pokemon` ).subscribe(data => {
+    this._httpClient.get( `pokemons` ).subscribe(data => {
       this._pokemons.next(data);
       this._pokemons.subscribe(data => this.pokemons = data.results )
     });
