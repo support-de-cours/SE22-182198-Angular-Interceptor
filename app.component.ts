@@ -5,7 +5,8 @@ import { BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 // TODO: Step 4 - 
-const endpoint: string = "https://pokeapi.co/api/v2/";
+// TODO: Step 8.a - Move endpoint (/environment/environment.ts)
+// const endpoint: string = "https://pokeapi.co/api/v2/";
 
 
 @Component({
@@ -26,7 +27,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void 
   {
-    this._httpClient.get( `${endpoint}pokemon` ).subscribe(data => {
+
+    // TODO: Step 9 - Remove Endpoint 
+    // this._httpClient.get( `${endpoint}pokemon` ).subscribe(data => {
+
+    this._httpClient.get( `pokemon` ).subscribe(data => {
       this._pokemons.next(data);
       this._pokemons.subscribe(data => this.pokemons = data.results )
     });
